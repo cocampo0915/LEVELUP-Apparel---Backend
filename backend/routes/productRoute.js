@@ -39,7 +39,7 @@ router.delete("/:id", isAuth, isAdmin, async (req, res) => {
   }
 });
 
-
+// hello 
 router.post("/", isAuth, isAdmin, async (req, res) => {
   const product = new Product({
     name: req.body.name,
