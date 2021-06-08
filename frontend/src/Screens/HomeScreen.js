@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { listProducts } from '../actions/productActions';
+import HomePageBanner from '../components/HomePageBanner/HomePageBanner';
 
 function HomeScreen(props) {
   const productList = useSelector(state => state.productList);
@@ -16,9 +17,10 @@ function HomeScreen(props) {
     };
   }, [])
 
-  return loading ? <div>Loading...</div> :
+  return (
+    loading ? <div>Loading...</div> :
     error ? <div>{error}</div> :
-        <ul className="products">
+      <ul className="products">
         {
           products.map(product =>
             <li key={product._id}>
@@ -36,10 +38,8 @@ function HomeScreen(props) {
               </div>
             </li>)
         }
-    
-    
-    
       </ul>
+)
     
 }
 

@@ -1,0 +1,10 @@
+.HomePageBanner {
+    background-color: darkgray;
+    color: white;
+}
+
+.banner-image {
+    max-width: 500px;
+    max-height: 300px;
+}
+

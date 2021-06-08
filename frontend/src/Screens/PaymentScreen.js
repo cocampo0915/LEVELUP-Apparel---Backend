@@ -15,30 +15,35 @@ function PaymentScreen(props) {
     dispatch(savePayment({paymentMethod}));
     props.history.push('placeorder');
   }
-  return <div>
-    <CheckoutSteps step1 step2 step3 />
-    <div className="form">
-      <form onSubmit={submitHandler} >
-        <ul className="form-container">
-          <li>
-            <h2>Payment</h2>
-          </li>
 
-          <li>
-            <input type="radio" name="paymentMethod" id="paymentMethod" value="payment" onChange={(e) => setPaymentMethod(e.target.value)}>
-            </input>
-            <label htmlFor="paymentMethod">
-              Paypal
-            </label>
-          </li>
+  return (
+    <div>
+      <CheckoutSteps step1 step2 step3 />
+      <div className="form">
+        <form onSubmit={submitHandler} >
+          <ul className="form-container">
+            <li>
+              <h2>Payment</h2>
+            </li>
 
-          <li>
-            <button type="submit" className="button primary">Continue</button>
-          </li>
+            <li> 
+              <div>
+                <input type="radio" name="paymentMethod" id="paymentMethod" value="payment" onChange={(e) => setPaymentMethod(e.target.value)}>
+                </input>
+                <label htmlFor="paymentMethod">
+                  Paypal
+                </label>
+              </div>
+            </li>
 
-        </ul>
-      </form>
+            <li>
+              <button type="submit" className="button primary">Continue</button>
+            </li>
+
+          </ul>
+        </form>
+      </div>
     </div>
-  </div>
+  )
 }
 export default PaymentScreen;
