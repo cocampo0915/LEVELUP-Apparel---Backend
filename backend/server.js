@@ -1,12 +1,11 @@
 const express = require('express');
-import dotenv from 'dotenv';
-import config from './config';
-import mongoose from 'mongoose';
-import bodyParser from 'body-parser';
-import userRoute from './routes/userRoute';
-import productRoute from './routes/productRoute';
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+var userRoute = require('./routes/userRoute');
+var productRoute =  require('./routes/productRoute');
 
-dotenv.config();
+require('dotenv').config();
+require('./config');
 
 const mongodbUrl = config.MONGODB_URL;
 mongoose.connect(mongodbUrl, {
