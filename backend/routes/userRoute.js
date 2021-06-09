@@ -1,6 +1,7 @@
-import express from 'express';
-import User from '../models/userModel';
-import { getToken } from '../util';
+
+const express = require('express');
+const User = require('../models/userModel');
+const util = require('../util');
 
 const router = express.Router();
 
@@ -16,7 +17,7 @@ router.post('/signin', async (req, res) => {
       name: signinUser.name,
       email: signinUser.email,
       isAdmin: signinUser.isAdmin,
-      token: getToken(signinUser)
+      token: util.getToken(signinUser)
     })
 
   } else {
@@ -61,4 +62,4 @@ router.get("/createadmin", async (req, res) => {
   }
 });
 
-export default router;
+module.exports = router;

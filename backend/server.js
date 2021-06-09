@@ -1,11 +1,11 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const config = require('./config');
 const bodyParser = require('body-parser');
 var userRoute = require('./routes/userRoute');
 var productRoute =  require('./routes/productRoute');
 
 require('dotenv').config();
-require('./config');
 
 const mongodbUrl = config.MONGODB_URL;
 mongoose.connect(mongodbUrl, {
