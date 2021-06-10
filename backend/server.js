@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const mongoose = require('mongoose');
 const config = require('./config');
 const bodyParser = require('body-parser');
@@ -15,6 +16,7 @@ mongoose.connect(mongodbUrl, {
 }).catch(error => console.log(error.reason));
 
 const app = express();
+app.use(cors());
 app.use(bodyParser.json());
 app.use("/api/users", userRoute);
 app.use("/api/products", productRoute);
