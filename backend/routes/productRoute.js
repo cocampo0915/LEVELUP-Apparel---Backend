@@ -44,7 +44,7 @@ router.delete("/:id", util.isAuth, util.isAdmin, async (req, res) => {
     await deletedProduct.remove();
     res.send({ message: "Product Deleted" });
   } else {
-    res.send("Error in Deletion.");
+    res.send("Error in Deletion.");git 
   }
 });
 
