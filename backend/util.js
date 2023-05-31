@@ -18,7 +18,7 @@ const isAuth = (req, res, next) => {
 
   if (token) {
     const onlyToken = token.slice(7, token.length);
-    jwt.verify(onlyToken, config.JWT_SECRET, (err, decode) => {
+    jwt.verify(onlyToken, config.JWT_SECRET, { allowInvalidAsymmetricKeyTypes: true }, (err, decode) => {
       if (err) {
         return res.status(401).send({ msg: 'Invalid Token' });
       }
@@ -40,7 +40,7 @@ const isAdmin = (req, res, next) => {
 }
 
 module.exports = {
-  getToken, 
-  isAuth, 
+  getToken,
+  isAuth,
   isAdmin
 }
